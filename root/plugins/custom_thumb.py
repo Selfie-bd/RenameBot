@@ -1,10 +1,3 @@
-'''
-RenameBot
-Thanks to Spechide Unkle as always fot the concept  ♥️
-This file is a part of mrvishal2k2 rename repo 
-Dont kang !!!
-© Mrvishal2k2
-'''
 
 import logging
 logging.basicConfig(level=logging.DEBUG,
@@ -27,7 +20,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 @Client.on_message(filters.photo)
 async def save_photo(c,m):
-    v = await m.reply_text("Saving Thumbnail",True)
+    v = await m.reply_text("Sᴀᴠɪɴɢ Tʜᴜᴍʙɴᴀɪʟ",True)
     if m.media_group_id is not None:
         # album is sent
         download_location = Config.DOWNLOAD_LOCATION + "/thumb/" + str(m.from_user.id) + "/" + str(m.media_group_id) + "/"
@@ -47,7 +40,7 @@ async def save_photo(c,m):
             file_name=download_location
         ) 
         try:
-           await v.edit_text("Thumbnail Saved Successfully.. 😍")
+           await v.edit_text("Tʜᴜᴍʙɴᴀɪʟ Sᴀᴠᴇᴅ Sᴜᴄᴄᴇssꜰᴜʟʟʏ")
         except Exception as e:
           log.info(f"#Error {e}")
 
@@ -59,7 +52,7 @@ async def delete_thumbnail(c,m):
         await del_thumb(m.from_user.id)
     except:
         pass
-    await m.reply_text("Thumbnail was removed Successfully 😋",quote=True)
+    await m.reply_text("Tʜᴜᴍʙɴᴀɪʟ Wᴀs Rᴇᴍᴏᴠᴇᴅ Sᴜᴄᴄᴇssꜰᴜʟʟʏ",quote=True)
 
 @Client.on_message(filters.command(["showthumb"]))
 async def show_thumbnail(c,m):
@@ -77,7 +70,7 @@ async def show_thumbnail(c,m):
 
     if thumb_image_path is None:
         try:
-            await msgg.edit_text("No Saved Thumbnail Found!!")
+            await msgg.edit_text("Nᴏ Sᴀᴠᴇᴅ Tʜᴜᴍʙɴᴀɪʟ Fᴏᴜɴᴅ!!")
         except:
               pass               
     else:
@@ -92,4 +85,3 @@ async def show_thumbnail(c,m):
         caption="This is the Saved Thumbnail!!!\nYou Can delete this by using \n/deletethumb Command",
         quote=True
     )
-
