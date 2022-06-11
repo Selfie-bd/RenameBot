@@ -10,6 +10,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup,ForceReply
 from root.utils.utils import *
 from root.utils.uploader import uploader
 import asyncio
+
 from root.messages import Translation
 from root.config import Config
 from root.utils.database import *
@@ -24,9 +25,11 @@ async def rename_call(c,m):
     mode = "File"
   elif m.data == "rename_video":
     mode = "Video"
+  else: # this couldnt happen
+    pass
   await m.message.delete()
   await c.send_message(
-    text=f"Mode: {mode} \nNow send me new file name without extension",
+    text=f"Nᴏᴡ Sᴇɴᴅ Mᴇ A Nᴇᴡ Fɪʟᴇ Nᴀᴍᴇ Wɪᴛʜᴏᴜᴛ Exᴛᴇɴsɪᴏɴ",
     chat_id=m.message.chat.id,
     reply_to_message_id=m.message.reply_to_message.message_id,
     reply_markup=ForceReply(True)
@@ -61,7 +64,7 @@ async def renamer(c,m,as_file=False):
     extension = "mkv"
   await bot_msg.delete() # delete name asked msg 
   if len(new_f_name) > 64:
-      await m.reply_text(text=f"Limits of telegram file name is 64 charecters only\nReduce some and try again.")
+      await m.reply_text(text=f"Lɪᴍɪᴛs Oꜰ Tᴇʟᴇɢʀᴀᴍ Fɪʟᴇ Nᴀᴍᴇ Is 64 Cʜᴀʀᴇᴄᴛᴇʀs Oɴʟʏ")
       return
   d_msg = await m.reply_text(Translation.DOWNLOAD_MSG,True)
   d_location = Config.DOWNLOAD_LOCATION + "/" + str(m.chat.id) + "/"
@@ -119,10 +122,11 @@ async def renamer(c,m,as_file=False):
 
 @Client.on_callback_query(filters.create(lambda _, __, query: query.data.startswith("cancel")))
 async def cancel_call(c,m):
-  if m.data != "cancel":# I think I need to delete both also in some case currently not used
-    await m.message.reply_to_message.delete()
-
-  await m.message.delete()
+   if m.data=="cancel":
+      await m.message.delete()
+   else:  # I think I need to delete both also in some case currently not used
+      await m.message.reply_to_message.delete()
+      await m.message.delete()
 
 
 
