@@ -2,8 +2,8 @@
 import os 
 
 class Config(object):
-  APP_ID = int(os.environ.get("APP_ID", "1976680"))
-  API_HASH = os.environ.get("API_HASH", "9073255ce64a6072a59099803493f97d")
+  APP_ID = int(os.environ.get("APP_ID", ""))
+  API_HASH = os.environ.get("API_HASH", "")
   TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
   AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "1940030638").split())
   DOWNLOAD_LOCATION = "./bot/DOWNLOADS"
