@@ -11,7 +11,7 @@ and Auto detection !!
 Use [Rename Robot](https://t.me/groupdcbots/111) 
 
 #### The Simple Way
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy/template?https://github.com/Selfie-bd/RenameBot/tree/patch-1)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https%3A%2F%2Fgithub.com%2FSelfie-bd%2FRenameBot%2Ftree%2Fpatch-1)
 
 #### Hard Way (VPS)
 * This is just a demo of commands to use
