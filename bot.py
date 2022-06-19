@@ -36,6 +36,7 @@ class Bot(Client):
 
     def __init__(self):
         super().__init__(
+            session_nama="RenameDcBot",
             api_id=Config.APP_ID,
             api_hash=Config.API_HASH,
             bot_token=Config.TG_BOT_TOKEN,
